@@ -17,7 +17,7 @@
             </div>
             <div class="col-sm-1" style="padding-top: calc(.5rem + 0px);">
                <td>
-                  <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#addactivation"><i class="fa fa-plus"> </i> Add</button>
+                  <button type="button" class="btn btn-block btn-outline-info btn-xs" data-toggle="modal" data-target="#addactivation"><i class="fa fa-plus"> </i> Add</button>
                </td>
             </div>
          </ul>
@@ -61,10 +61,10 @@
                         @endif
                   <td>{{ $manageactivationlist['from_date'] }}</td>
                   <td>
-                     <a class="btn btn-default btn-outline-danger btn-xs fa fa-edit" href="" data-toggle="modal" data-target="#Edit{{ $manageactivationlist['id'] }}"> Edit</a>
+                     <a class="btn btn-default btn-outline-primary btn-xs fa fa-edit" href="" data-toggle="modal" data-target="#Edit{{ $manageactivationlist['id'] }}"> Edit</a>
 
 
-                     <a class="btn btn-default btn-outline-danger btn-xs fa fa-eye" href="" data-toggle="modal" data-target="#View{{ $manageactivationlist['id'] }}"> View</a>
+                     <a class="btn btn-default btn-outline-info btn-xs fa fa-eye" href="" data-toggle="modal" data-target="#View{{ $manageactivationlist['id'] }}"> View</a>
 
                      <a class="btn btn-default btn-outline-danger btn-xs fa fa-eye" href="" data-toggle="modal" data-target="#delete{{ $manageactivationlist['id'] }}"> Delete</a>
 
@@ -221,7 +221,7 @@
                                        <div class="form-group row">
                                           <label for="total_amount" class="col-sm-4 col-form-label Decimal"><span style="color:red"></span>Total Amount</label>
                                           <div class="col-sm-8">
-                                             <input readonly value="{{ floatval($manageactivationlist['credit_amount']) + floatval($manageactivationlist['intrestamount']) }}" name="total_amount" id="total_amount{{ $manageactivationlist['id'] }}" type="text" class="form-control"  placeholder="Total Amount"/>
+                                             <input readonly value="{{  round(floatval($manageactivationlist['credit_amount'])) + round(floatval($manageactivationlist['intrestamount'])) }}" name="total_amount" id="total_amount{{ $manageactivationlist['id'] }}" type="text" class="form-control"  placeholder="Total Amount"/>
                                           </div>
                                        </div>
                                        <div class="form-group row">

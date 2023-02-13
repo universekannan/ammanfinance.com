@@ -168,7 +168,7 @@ class ActivationController extends BaseController
       'intrest_amount'            =>   $request->intrest_amount,
       'pay_amount'                =>   $request->pay_amount,
       'total_amount'              =>   $request->total_amount,
-      'balance_amount'            =>   $request->balance_amount,
+      'balance_amount'            =>   round($request->balance_amount),
       'status'                    =>   $status,
       'created_at'                =>   date('Y-m-d H:i:s'),
       'login_id'                  =>   auth()->user()->id,
@@ -176,9 +176,11 @@ class ActivationController extends BaseController
 	
 	$editactivation = DB::table('activation')->where('id',$request->activation_id)->update([
       'status'                    =>   $status,
-      'credit_amount'             =>   $request->balance_amount,
+      'credit_amount'             =>   round($request->balance_amount),
+      'from_date'                 =>   date('Y-m-d'),
       'updated_at'                =>   date('Y-m-d H:i:s'),
       'login_id'                  =>   auth()->user()->id,
+
 
      ]);
 
@@ -189,6 +191,7 @@ class ActivationController extends BaseController
 
   public function deleteActivation(Request $request){
     $deleteActivation = DB::table('activation')->where('id',$request->id)->delete();
+    $deleteActivationDetails = DB::table('activation_details')->where('activation_id',$request->id)->delete();
 
     return redirect("/activation/".$request->customer_id)->with('success', 'Activation Delete Successfully');
   }

@@ -165,6 +165,10 @@ input, select[type=text] {
     width: 100%;
     color: black;
 }
+
+.dark-mode input:-webkit-autofill, .dark-mode input:-webkit-autofill:focus, .dark-mode input:-webkit-autofill:hover, .dark-mode select:-webkit-autofill, .dark-mode select:-webkit-autofill:focus, .dark-mode select:-webkit-autofill:hover, .dark-mode textarea:-webkit-autofill, .dark-mode textarea:-webkit-autofill:focus, .dark-mode textarea:-webkit-autofill:hover {
+    -webkit-text-fill-color: black;
+}
 .form-control {
     display: block;
     width: 100%;

@@ -19,7 +19,7 @@
                     <div class="col-sm-1" style="padding-top: calc(.5rem + 0px);">
                         <td>
 
-<button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#adduser"><i class="fa fa-plus"> </i> Add</button>
+<button type="button" class="btn btn-block btn-outline-info btn-xs" data-toggle="modal" data-target="#adduser"><i class="fa fa-plus"> </i> Add</button>
 </td>
                     </div>
                 </ul>
@@ -65,9 +65,9 @@
                             
                            <div class="btn-group dropdown">
 
-<button type="button" class="btn btn-default btn-outline-danger btn-xs fa fa-eye" data-toggle="dropdown">
+<button type="button" class="btn btn-default btn-outline-info btn-xs fa fa-eye" data-toggle="dropdown">
 </button>
-<button type="button" class="btn btn-default btn-outline-danger btn-xs">Action</button>
+<button type="button" class="btn btn-default btn-outline-info btn-xs">Action</button>
 
 <div class="dropdown-content">
 <a href="" data-toggle="modal" data-target="#edit{{ $manageuserslist->userID }}">Edit Profile</a>

@@ -4225,8 +4225,8 @@ function calculate_amount(e,id){
   interestamount = Number(interestamount);
   payamount = Number(payamount);
   creditamount = Number(creditamount);
-  balance = payamount - interestamount;
-  balance = creditamount - balance;
+  balance = Math.round(payamount - interestamount);
+  balance = Math.round(creditamount - balance);
   $("#balanceamount"+id).val(balance);
 }
 
@@ -4245,8 +4245,8 @@ function validate_amount(e,id){
          $("#warningmessage"+id).html("Minimum Pay Amount is "+interestamount);
          return false;
       }else{
-        balance = payamount - interestamount;
-        balance = creditamount - balance;
+         balance = Math.round(payamount - interestamount);
+         balance = Math.round(creditamount - balance);
         $("#balanceamount"+id).val(balance);
         if(payamount > total_amount){
           $("#warningmessage"+id).html("Pay Amount cannot be more than "+total_amount);

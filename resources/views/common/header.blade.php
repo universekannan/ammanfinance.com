@@ -26,7 +26,7 @@
    border: 1px solid #c5cbfc;
    border-radius: 5px;
    padding: 5px 5px 5px 10px;
-   background-color: #343a40;
+   background-color: #454d552b;
    }
    legend {
    border: 0;
