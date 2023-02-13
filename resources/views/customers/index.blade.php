@@ -13,12 +13,13 @@
                      <div class="nav-link">Gold Loans Customers List</div>
                   </center>
                </div>
+               <div class="col-sm-4"></div>
                 <!--<div class="col-sm-4" style="padding-top: calc(.5rem + 0px);">
                   <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Customer Full Name">
                </div>-->
                <div class="col-sm-1" style="padding-top: calc(.5rem + 0px);">
                   <td>
-                     <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#addCustomer"><i class="fa fa-plus"> </i> Add</button>
+                     <button type="button" class="btn btn-block btn-outline-info btn-xs" data-toggle="modal" data-target="#addCustomer"><i class="fa fa-plus"> </i> Add</button>
                   </td>
                </div>
             </ul>

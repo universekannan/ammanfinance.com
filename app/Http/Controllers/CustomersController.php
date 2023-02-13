@@ -37,7 +37,7 @@ class CustomersController extends BaseController
     /****** View  Roles Start ******/
 
         public function manageCustomers(){
-		  $managecustomers = DB::table('customers')->orderBy('id','Asc')->get();
+		  $managecustomers = DB::table('customers')->orderBy('id','Desc')->get();
             return view("customers.index")->with('managecustomers', $managecustomers);
         }
 

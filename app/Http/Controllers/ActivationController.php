@@ -46,7 +46,7 @@ class ActivationController extends BaseController
     $managecustomer = DB::table('customers')->where('id',$id)->get();
     //$manageactivationdetails = DB::table('activation_details')->where('customer_id',$id)->get();
     $manageinterest = DB::table('interest')->where('status',1)->get();
-    $manageactivation = DB::table('activation')->where('customer_id',$id)->get();
+    $manageactivation = DB::table('activation')->where('customer_id',$id)->orderBy('activation.id','DESC')->get();
 
     $manageactivation = json_decode(json_encode($manageactivation),true);
 

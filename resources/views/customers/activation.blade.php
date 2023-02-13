@@ -57,13 +57,15 @@
 				   @if($manageactivationlist['status'] == 1)
                           <td>Active</td>
                         @else
-                          <td>Close</td>
+                          <td>Closed</td>
                         @endif
                   <td>{{ $manageactivationlist['from_date'] }}</td>
                   <td>
+                      @if($manageactivationlist['status'] == 1)
                      <a class="btn btn-default btn-outline-primary btn-xs fa fa-edit" href="" data-toggle="modal" data-target="#Edit{{ $manageactivationlist['id'] }}"> Edit</a>
-
-
+                       @else
+                       <a class="btn btn-primary btn-xs disabled fa fa-edit"> Edit</a>
+                        @endif
                      <a class="btn btn-default btn-outline-info btn-xs fa fa-eye" href="" data-toggle="modal" data-target="#View{{ $manageactivationlist['id'] }}"> View</a>
 
                      <a class="btn btn-default btn-outline-danger btn-xs fa fa-eye" href="" data-toggle="modal" data-target="#delete{{ $manageactivationlist['id'] }}"> Delete</a>
@@ -169,7 +171,7 @@
 								    @if($manageactivationdetailslist['status'] == 1)
 									   <td>Active</td>
 								    @else
-									   <td>Close</td>
+									   <td>Closed</td>
 								    @endif
                                     </tr>
 								
@@ -181,8 +183,6 @@
                                  {{ csrf_field() }}
                                  <div class="row">
                                     <div class="col-md-6">
-                                       <center>Page Number</center>
-                                       <hr>
                                        <img  src="{!! asset('dist/img/AdminLTELogo.png') !!}" alt="HC" height="500" width="500">
                                     </div>
                                     <div class="col-md-6">
@@ -277,8 +277,6 @@
                            <div class="modal-body">
                               <div class="row">
                                  <div class="col-md-6">
-                                    <center>Page Number</center>
-                                    <hr>
                                     <img  src="{!! asset('dist/img/AdminLTELogo.png') !!}" alt="HC" height="500" width="500">
                                  </div>
                                  <div class="col-md-6">
@@ -289,7 +287,7 @@
 
                                   <div class="form-group row">
                                     <label for="email" class="col-sm-4 col-form-label"><span style="color:red"></span>Credit Amount</label>
-                                    <label for="email" id="creditamount{{ $manageactivationlist['id'] }} class="col-sm-8 col-form-label"><span style="color:red"></span>{{ $manageactivationlist['credit_amount'] }}</label>
+                                    <label for="email" id="creditamount{{ $manageactivationlist['id'] }}" class="col-sm-8 col-form-label"><span style="color:red"></span>{{ $manageactivationlist['credit_amount'] }}</label>
 
                                  </div>
                                  <div class="form-group row">
