@@ -36,61 +36,61 @@ class DepositsCustomersController extends BaseController
 
     /****** View  Roles Start ******/
 
-        public function manageDepositsCustomers(){
-		  $managedepositscustomers = DB::table('deposits_customers')->orderBy('id','Asc')->get();
-            return view("depositscustomers.index")->with('managedepositscustomers', $managedepositscustomers);
-        }
+    public function manageDepositsCustomers(){
+        $managedepositscustomers = DB::table('deposits_customers')->orderBy('id','Asc')->get();
+        return view("depositscustomers.index")->with('managedepositscustomers', $managedepositscustomers);
+    }
 
     /******   View Roles  end ******/
 
 
-              public function addDepositsCustomer(Request $request){
-               $mobile_number = trim($request->get('mobile_number'));
-                $emailcheck = DB::table('deposits_customers')->select('mobile_number')->where('mobile_number','=',$mobile_number)->get();
+    public function addDepositsCustomer(Request $request){
+     $mobile_number = trim($request->get('mobile_number'));
+     $emailcheck = DB::table('deposits_customers')->select('mobile_number')->where('mobile_number','=',$mobile_number)->get();
 
-               if(count($emailcheck) > 0){
-            return redirect('/depositscustomers')->with('error', 'This User already Exist');
-        }else{
+     if(count($emailcheck) > 0){
+        return redirect('/depositscustomers')->with('error', 'This Mobile number already Exist');
+    }else{
 
-                $adddepositscustomer = DB::table('deposits_customers')->insert([
-                'full_name'		 	    	=>   $request->full_name,
-                'mobile_number'			  	=>   $request->mobile_number,
-                'id_proof'                  =>   $request->id_proof,
-                'gender'                    =>   $request->gender,
-                'age'                       =>   $request->age,
-                'address'                   =>   $request->address,
-                'status'                    =>   1,
-                'date'                      =>   date('Y-m-d H:i:s'),
-                'login_id'                  =>   $request->login_id,
-               
-                ]);
+        $adddepositscustomer = DB::table('deposits_customers')->insert([
+            'full_name'		 	    	=>   $request->full_name,
+            'mobile_number'			  	=>   $request->mobile_number,
+            'id_proof'                  =>   $request->id_proof,
+            'gender'                    =>   $request->gender,
+            'age'                       =>   $request->age,
+            'address'                   =>   $request->address,
+            'status'                    =>   1,
+            'date'                      =>   date('Y-m-d H:i:s'),
+            'login_id'                  =>   auth()->user()->id,
+            
+        ]);
 
-                return redirect('/depositscustomers')->with('success', 'Customer Created Successfully');
-        }
-			  }
-    
- 
-     /****** Edit  Roles Start ******/
+        return redirect('/depositscustomers')->with('success', 'Customer Created Successfully');
+    }
+}
 
-             public function editDepositsCustomer(Request $request){
-             $editdepositscustomer = DB::table('deposits_customers')->where('id',$request->id)->update([
-                'full_name'		 	    	=>   $request->full_name,
-                'mobile_number'			  	=>   $request->mobile_number,
-                'id_proof'                  =>   $request->id_proof,
-                'gender'                    =>   $request->gender,
-                'age'                       =>   $request->age,
-                'address'                   =>   $request->address,
-                'status'                    =>   $request->status,
-                'date'                      =>   date('Y-m-d H:i:s'),
-                'login_id'                  =>   $request->login_id,
-                ]);
 
-                return redirect('/depositscustomers')->with('success', 'Customer Updated Successfully'); 
-            }
-			
-		public function manageDepositsCustomer(){
-		  $managedepositscustomer = DB::table('deposits_customers')->orderBy('id','Asc')->get();
-            return view("depositscustomers.activation")->with('managedepositscustomer', $managedepositscustomer);
-        }
+/****** Edit  Roles Start ******/
+
+public function editDepositsCustomer(Request $request){
+   $editdepositscustomer = DB::table('deposits_customers')->where('id',$request->id)->update([
+    'full_name'		 	    	=>   $request->full_name,
+    'mobile_number'			  	=>   $request->mobile_number,
+    'id_proof'                  =>   $request->id_proof,
+    'gender'                    =>   $request->gender,
+    'age'                       =>   $request->age,
+    'address'                   =>   $request->address,
+    'status'                    =>   $request->status,
+    'date'                      =>   date('Y-m-d H:i:s'),
+    'login_id'                  =>   auth()->user()->id,
+]);
+
+   return redirect('/depositscustomers')->with('success', 'Customer Updated Successfully'); 
+}
+
+public function manageDepositsCustomer(){
+    $managedepositscustomer = DB::table('deposits_customers')->orderBy('id','Asc')->get();
+    return view("depositscustomers.activation")->with('managedepositscustomer', $managedepositscustomer);
+}
 
 }

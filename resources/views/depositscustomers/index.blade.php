@@ -30,6 +30,12 @@
                <strong> {{ session('success') }} </strong>
             </div>
             @endif
+             @if(session()->has('error'))
+            <div class="alert alert-danger alert-dismissable">
+               <a href="#" style="color:white !important" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+               <strong> {{ session('error') }} </strong>
+            </div>
+            @endif
             <div class="tab-content" id="custom-tabs-four-tabContent">
                <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
                   <table id="myTable" class="table table-bordered table-hover">
@@ -182,7 +188,7 @@
          </form>
       </div>
       <div class="modal fade" id="addCustomer">
-         <form action="{{url('/add_customer')}}" method="post" enctype="multipart/from-data">
+         <form action="{{url('/add_depositcustomer')}}" method="post" enctype="multipart/from-data">
             {{ csrf_field() }}
             <div class="modal-dialog">
                <div class="modal-content">

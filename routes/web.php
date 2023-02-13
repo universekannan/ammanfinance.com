@@ -65,6 +65,7 @@ Route::group(['middleware' => ['auth']], function() {
 //Deposits
 	
     Route::get('/depositscustomers', 'App\Http\Controllers\DepositsCustomersController@manageDepositsCustomers');
+    Route::post('/add_depositcustomer', 'App\Http\Controllers\DepositsCustomersController@addDepositsCustomer');
 
 	Route::get('/depositsactivation/{id}', 'App\Http\Controllers\DepositsActivationController@manageDepositsActivation');
    	Route::get('/depositsactivations', 'App\Http\Controllers\DepositsActivationController@manageDepositsActivations');

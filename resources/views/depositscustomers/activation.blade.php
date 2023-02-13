@@ -89,7 +89,7 @@
                                           <input type="hidden" class="form-control" name="customer_id" value="{{ $managedepositscustomerlist->id }}"/>
                                           @endforeach
                                           @foreach($manageinterest as $key=>$manageinterestlist)
-                                          <input type="hidden" class="form-control" name="intrest" value="{{ $manageinterestlist->interest_value }}"/>
+                                          <input type="hidden" class="form-control" name="intrest" value=""/>
                                           @endforeach
                                           <input value="{{ $managedepositsactivationlist["page_number"] }}" type="text"  class="form-control mb-3" name="page_number" placeholder="Page Number"/>
                                           <input value="{{ $managedepositsactivationlist["item_name"] }}" type="text" class="form-control mb-3" name="item_name" placeholder="Item Name"/>
@@ -168,14 +168,7 @@
                                  {{ csrf_field() }}
                                  <div class="row">
                                     <div class="col-md-6">
-                                       <center>Page Number</center>
-                                       <hr>
-                                       <img  src="{!! asset('dist/img/AdminLTELogo.png') !!}" alt="HC" height="500" width="500">
-                                    </div>
-                                    <div class="col-md-6">
-                                       <input type="hidden" class="form-control" name="activation_id" value="{{ $managedepositsactivationlist["id"]}}"/>
-                                       <input type="hidden" class="form-control" name="customer_id" value="{{ $managedepositsactivationlist["customer_id"] }}"/>
-                                       <div class="form-group row">
+                                                <div class="form-group row">
                                           <label for="email" class="col-sm-4 col-form-label"><span style="color:red"></span>Credit Amount</label>
                                           <div class="col-sm-8">
                                              <input readonly id="creditamount{{ $managedepositsactivationlist["id"] }}" value="{{ $managedepositsactivationlist["credit_amount"] }}" type="text"  class="form-control" name="credit_amount" placeholder="Credit Amount"/>
@@ -193,16 +186,22 @@
                                              <input readonly value="{{ $thisdate = date('Y-m-d'); }}" type="text"  class="form-control" name="current_date" placeholder="Current Date"/>
                                           </div>
                                        </div>
-                                       <div class="form-group row">
+                                        <div class="form-group row">
                                           <label for="email" class="col-sm-4 col-form-label"><span style="color:red"></span>Interest %</label>
                                           <div class="col-sm-8">
                                              <input readonly value="{{ $managedepositsactivationlist["intrest"] }}" type="text"  class="form-control" name="intrest" placeholder="Intrest"/>
                                           </div>
                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                       <input type="hidden" class="form-control" name="activation_id" value="{{ $managedepositsactivationlist["id"]}}"/>
+                                       <input type="hidden" class="form-control" name="customer_id" value="{{ $managedepositsactivationlist["customer_id"] }}"/>
+                             
+                                      
                                        <div class="form-group row">
                                           <label for="email" class="col-sm-4 col-form-label"><span style="color:red"></span>Interest Amount</label>
                                           <div class="col-sm-8">
-                                             <input readonly value="{{ $managedepositsactivationlist["intrestamount"] }}" type="text" id="interestamount{{ $managedepositsactivationlist["id"] }}"  class="form-control" name="intrest_amount" placeholder="Intrest Amount"/>
+                                             <input readonly value="{{ $managedepositsactivationlist['intrestamount'] }}" type="text" id="interestamount{{ $managedepositsactivationlist["id"] }}"  class="form-control" name="intrest_amount" placeholder="Intrest Amount"/>
                                           </div>
                                        </div>
                                        <div class="form-group row">
@@ -217,14 +216,16 @@
                                              <input onkeyup="calculate_amount(event,{{ $managedepositsactivationlist["id"] }})" autofocus id="payamount{{ $managedepositsactivationlist["id"] }}" type="text"  class="form-control" name="pay_amount" placeholder="Pay Amount"/>
                                           </div>
                                        </div>
-                                       <div class="form-group row">
-                                          <label style="color:red;font-weight:bold" id="warningmessage{{ $managedepositsactivationlist["id"] }}" class="col-sm-12 col-form-label"></label>
-                                       </div>
+                                      
                                        <div class="form-group row">
                                           <label for="email" class="col-sm-4 col-form-label"><span style="color:red"></span>Balance Amount</label>
                                           <div class="col-sm-8">
                                              <input readonly id="balanceamount{{ $managedepositsactivationlist["id"] }}" type="text"  class="form-control" name="balance_amount" placeholder="Balance Amount"/>
                                           </div>
+                                       </div>
+
+                                        <div class="form-group row">
+                                          <label style="color:red;font-weight:bold" id="warningmessage{{ $managedepositsactivationlist["id"] }}" class="col-sm-12 col-form-label"></label>
                                        </div>
                                     </div>
                                  </div>
@@ -345,7 +346,7 @@
                <input type="hidden" class="form-control" name="customer_id" value="{{ $managedepositscustomerlist->id }}"/>
                @endforeach
                @foreach($manageinterest as $key=>$manageinterestlist)
-               <input type="hidden" class="form-control" name="intrest" value="{{ $manageinterestlist->interest_value }}"/>
+               <input type="hidden" class="form-control" name="intrest" value="{{ $manageinterestlist->deposits_interest_value }}"/>
                @endforeach
                <input type="hidden" class="form-control" name="id" value=""/>
                <input type="text"  class="form-control mb-3" name="page_number" placeholder="Page Number"/>
