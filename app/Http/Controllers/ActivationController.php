@@ -60,6 +60,10 @@ class ActivationController extends BaseController
       $days = round($datediff / (60 * 60 * 24));
       $intrestamount = $credit_amount * (($interest/365)*$days)/100;
       $intrestamount = number_format($intrestamount,2);
+      $b = str_replace( ',', '', $intrestamount );
+      if( is_numeric( $b ) ) {
+      $intrestamount = $b;
+      }
       $manageactivation[$key1]["intrestamount"] = $intrestamount;
 
       $sql_details = "select * from activation_details where activation_id = $activation_id";

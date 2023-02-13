@@ -67,8 +67,8 @@
                            <td>Inactive</td>
                            @endif
                            <td>
-                              <a class="btn btn-default btn-outline-danger btn-xs fa fa-eye" href="" data-toggle="modal" data-target="#View{{ $managecustomerslist->id }}"> View</a>
-                              <a class="btn btn-default btn-outline-danger btn-xs fa fa-edit" href="" data-toggle="modal" data-target="#Edit{{ $managecustomerslist->id }}"> Edit</a>
+                              <a class="btn btn-default btn-outline-info btn-xs fa fa-eye" href="" data-toggle="modal" data-target="#View{{ $managecustomerslist->id }}"> View</a>
+                              <a class="btn btn-default btn-outline-primary btn-xs fa fa-edit" href="" data-toggle="modal" data-target="#Edit{{ $managecustomerslist->id }}"> Edit</a>
                               <div class="modal fade" id="Edit{{ $managecustomerslist->id }}">
                                  <form action="{{url('/edit_customer')}}" method="post" enctype="multipart/from-data">
                                     {{ csrf_field() }}

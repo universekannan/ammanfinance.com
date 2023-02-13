@@ -221,7 +221,7 @@
                                        <div class="form-group row">
                                           <label for="total_amount" class="col-sm-4 col-form-label Decimal"><span style="color:red"></span>Total Amount</label>
                                           <div class="col-sm-8">
-                                             <input readonly value="{{  round(floatval($manageactivationlist['credit_amount'])) + round(floatval($manageactivationlist['intrestamount'])) }}" name="total_amount" id="total_amount{{ $manageactivationlist['id'] }}" type="text" class="form-control"  placeholder="Total Amount"/>
+                                             <input readonly value="{{ round(floatval($manageactivationlist['credit_amount'])) + round(floatval($manageactivationlist['intrestamount'])) }}" name="total_amount" id="total_amount{{ $manageactivationlist['id'] }}" type="text" class="form-control"  placeholder="Total Amount"/>
                                           </div>
                                        </div>
                                        <div class="form-group row">
