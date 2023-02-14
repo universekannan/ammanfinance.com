@@ -4274,4 +4274,36 @@ function validate_amount(e,id){
             $("#error").css("display", "none");
         }
     });
+
+function calculate_depositamount(e,id){
+  var creditamount = $("#creditamount"+id).val();
+  var interestamount = $("#interestamount"+id).val();
+  var payamount = $("#payamount"+id).val();
+  interestamount = Number(interestamount);
+  payamount = Number(payamount);
+  creditamount = Number(creditamount);
+  balance = Math.round(payamount + interestamount);
+  balance = Math.round(creditamount + balance);
+  $("#balanceamount"+id).val(balance);
+}
+
+function validate_amount(e,id){
+      //e.preventDefault();
+      var creditamount = $("#creditamount"+id).val();
+      var interestamount = $("#interestamount"+id).val();
+      var total_amount = $("#total_amount"+id).val();
+      var payamount = $("#payamount"+id).val();
+      interestamount = Number(interestamount);
+      total_amount = Number(total_amount);
+      payamount = Number(payamount);
+      creditamount = Number(creditamount);
+   
+        if(payamount == 0){
+          $("#warningmessage"+id).html("Pay Amount cannot be "+payamount+".please enter valid amount ");
+          return false;
+        }else{
+          return true;
+        }
+      }
+
 </script>

@@ -61,9 +61,13 @@ class DepositsActivationController extends BaseController
       $days = round($datediff / (60 * 60 * 24));
       $intrestamount = $credit_amount * (($interest/365)*$days)/100;
       $intrestamount = number_format($intrestamount,2);
+      $amount = str_replace( ',', '', $intrestamount );
+      if( is_numeric( $amount ) ) {
+      $intrestamount = $amount;
+      }
       $managedepositsactivation[$key1]["intrestamount"] = $intrestamount;
 
-      $sql_details = "select * from activation_details where activation_id = $activation_id";
+      $sql_details = "select * from deposits_activation_details where activation_id = $activation_id";
       $details = DB::select(DB::raw($sql_details));
       $details = json_decode(json_encode($details),true);
 
@@ -134,6 +138,14 @@ class DepositsActivationController extends BaseController
       'created_at'                =>   date('Y-m-d H:i:s'),
       'login_id'                  =>   $request->login_id,
     ]);
+
+    $editdepositsactivation = DB::table('deposits_activation')->where('id',$request->activation_id)->update([
+      'status'                    =>   1,
+      'credit_amount'             =>   round($request->balance_amount),
+      'from_date'                 =>   date('Y-m-d'),
+      'updated_at'                =>   date('Y-m-d H:i:s'),
+      'login_id'                  =>   auth()->user()->id,
+   ]);
     return redirect("/depositsactivation/".$request->customer_id)->with('success', 'Activation Created Successfully');
   }
 
