@@ -8,7 +8,7 @@
             <div class="col-sm-6">
                <center>
                   @foreach($managedepositscustomer as $key=>$managedepositscustomerlist)
-                  <div class="nav-link">{{ $managedepositscustomerlist->full_name }} Gold Loans  Activation</div>
+                  <div class="nav-link">{{ $managedepositscustomerlist->full_name }} Deposit Activation</div>
                   @endforeach
                </center>
             </div>
@@ -162,7 +162,7 @@
                                  </tbody>
                               </table>
 
-                              <form action="{{url('/add_deposits_activation_details')}}" onsubmit="return validate_amount(event,{{ $managedepositsactivationlist['id'] }})" method="post" >
+                              <form action="{{url('/add_deposits_activation_details')}}" onsubmit="return validate_depositamount(event,{{ $managedepositsactivationlist['id'] }})" method="post" >
                                  {{ csrf_field() }}
                                  <div class="row">
                                     <div class="col-md-6">
@@ -294,7 +294,7 @@
                                  </div>
                                  <div class="form-group row">
                                     <label for="email" class="col-sm-4 col-form-label Decimal"><span style="color:red"></span>Total Amount</label>
-                                    <label for="email" class="col-sm-8 col-form-label Decimal"><span style="color:red"></span>Total Amount</label>
+                                    <label for="email" class="col-sm-8 col-form-label Decimal"><span style="color:red"></span>{{ $managedepositsactivationlist["intrestamount"] }}</label>
 
                                  </div>
                               </br>

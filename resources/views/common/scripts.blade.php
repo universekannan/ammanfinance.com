@@ -4287,7 +4287,7 @@ function calculate_depositamount(e,id){
   $("#balanceamount"+id).val(balance);
 }
 
-function validate_amount(e,id){
+function validate_depositamount(e,id){
       //e.preventDefault();
       var creditamount = $("#creditamount"+id).val();
       var interestamount = $("#interestamount"+id).val();
