@@ -4306,4 +4306,23 @@ function validate_depositamount(e,id){
         }
       }
 
+
+
 </script>
+
+<script>
+  
+  function calculate_withdrawamount(e,id){
+  var withdrawcreditamount = $("#withdrawcreditamount"+id).val();
+  var withdrawinterestamount = $("#withdrawinterestamount"+id).val();
+  var withdrawpayamount = $("#withdrawpayamount"+id).val();
+  withdrawinterestamount = Number(withdrawinterestamount);
+  withdrawpayamount = Number(withdrawpayamount);
+  withdrawcreditamount = Number(withdrawcreditamount);
+  withdrawbalance = Math.round(withdrawpayamount - withdrawinterestamount);
+  withdrawbalance = Math.round(withdrawcreditamount - withdrawbalance);
+  $("#withdrawbalanceamount"+id).val(withdrawbalance);
+}
+
+</script>
+

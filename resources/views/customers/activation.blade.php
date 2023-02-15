@@ -17,6 +17,7 @@
             </div>
             <div class="col-sm-1" style="padding-top: calc(.5rem + 0px);">
                <td>
+                  
                   <button type="button" class="btn btn-block btn-outline-info btn-xs" data-toggle="modal" data-target="#addactivation"><i class="fa fa-plus"> </i> Add</button>
                </td>
             </div>

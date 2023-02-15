@@ -72,7 +72,8 @@ Route::group(['middleware' => ['auth']], function() {
 
 	Route::post('/add_depositsactivation', 'App\Http\Controllers\DepositsActivationController@addDepositsActivation');
     Route::post('/edit_deposits_activation', 'App\Http\Controllers\DepositsActivationController@editDepositsActivation');
-	Route::post('/deletedepositsactivation', 'App\Http\Controllers\DepositsActivationController@deleteDepositsActivation');
+	Route::post('/withdrawdeposits', 'App\Http\Controllers\DepositsActivationController@WithdrawDeposits');
+    Route::post('/deletedepositsactivation', 'App\Http\Controllers\DepositsActivationController@deleteDepositsActivation');
 
     Route::post('/add_deposits_activation_details', 'App\Http\Controllers\DepositsActivationController@addDepositsActivationDetails');
 

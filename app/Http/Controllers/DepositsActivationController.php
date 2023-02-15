@@ -135,6 +135,7 @@ class DepositsActivationController extends BaseController
       'total_amount'              =>   $request->total_amount,
       'balance_amount'            =>   $balance_amount,
       'status'                    =>   $request->status,
+      'credit_debit'              =>   "Credit",
       'created_at'                =>   date('Y-m-d H:i:s'),
       'login_id'                  =>   $request->login_id,
     ]);
@@ -150,8 +151,47 @@ class DepositsActivationController extends BaseController
   }
 
 
+public function WithdrawDeposits(Request $request){
+    $balance_amount = $request->balance_amount;
+    if($balance_amount < 0) $balance_amount = 0;
+     if($request->balance_amount == '0') {
+         $status = 2;
+  } else {
+    $status = 1;
+  }
+    $WithdrawDeposits = DB::table('deposits_activation_details')->insert([
+      'customer_id'               =>   $request->customer_id,
+      'activation_id'             =>   $request->activation_id,
+      'customer_id'               =>   $request->customer_id,
+      'intrest'                   =>   $request->intrest,
+      'from_date'                 =>   $request->from_date,
+      'to_date'                   =>   date('Y-m-d'),
+      'credit_amount'             =>   $request->credit_amount,
+      'intrest_amount'            =>   $request->intrest_amount,
+      'pay_amount'                =>   $request->pay_amount,
+      'total_amount'              =>   $request->total_amount,
+      'balance_amount'            =>   $balance_amount,
+      'status'                    =>   $status,
+      'credit_debit'              =>   "Debit",
+      'created_at'                =>   date('Y-m-d H:i:s'),
+      'login_id'                  =>   $request->login_id,
+    ]);
+
+    $Withdraw = DB::table('deposits_activation')->where('id',$request->activation_id)->update([
+      'status'                    =>   $status,
+      'credit_amount'             =>   round($request->balance_amount),
+      'from_date'                 =>   date('Y-m-d'),
+      'updated_at'                =>   date('Y-m-d H:i:s'),
+      'login_id'                  =>   auth()->user()->id,
+   ]);
+  
+    return redirect("/depositsactivation/".$request->customer_id)->with('success', 'Activation Created Successfully');
+  }
+
+
   public function deleteDepositsActivation(Request $request){
     $deletedepositsactivation = DB::table('deposits_activation')->where('id',$request->id)->delete();
+    $deletedepositsActivationDetails = DB::table('deposits_activation_details')->where('activation_id',$request->id)->delete();
 
     return redirect("/depositsactivation/".$request->customer_id)->with('success', 'Activation Delete Successfully');
   }
