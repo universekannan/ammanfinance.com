@@ -105,9 +105,9 @@
          <?php } ?>
          <?php if($permission->investigation == 1){ ?>
          <li class="nav-item d-none d-sm-inline-block col-md-1">
-            <a href="">
+            <a href="{{url('/goldcollection')}}">
             <img src="{!! asset('dist/img/icon/appointment.png') !!}" style="width:50px"></br>
-            <label>Investigation</label>
+            <label>Gold Report</label>
             </a>
          </li>
          <?php } ?>
@@ -115,7 +115,7 @@
          <li class="nav-item d-none d-sm-inline-block col-md-1">
             <a href="">
             <img src="{!! asset('dist/img/icon/appointment.png') !!}" style="width:50px"></br>
-            <label>OT</label>
+            <label>D Report</label>
             </a>
          </li>
          <?php } ?>

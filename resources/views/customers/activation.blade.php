@@ -69,6 +69,8 @@
                         @endif
                      <a class="btn btn-default btn-outline-info btn-xs fa fa-eye" href="" data-toggle="modal" data-target="#View{{ $manageactivationlist['id'] }}"> View</a>
 
+                      <a class="btn btn-default btn-outline-warning btn-xs fa fa-eye" href="" data-toggle="modal" data-target="#bill{{ $manageactivationlist['id'] }}"> bill</a>
+
                      <a class="btn btn-default btn-outline-danger btn-xs fa fa-eye" href="" data-toggle="modal" data-target="#delete{{ $manageactivationlist['id'] }}"> Delete</a>
 
 

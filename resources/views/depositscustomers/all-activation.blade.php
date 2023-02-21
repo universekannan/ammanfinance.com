@@ -41,20 +41,20 @@
                         </tr>
                      </thead>
                      <tbody>
- @foreach($manageactivations as $key=>$manageactivationlist)
+ @foreach($managedepositsactivations as $key=>$managedepositsactivationlist)
                         <tr>
 
                            <td>{{ $key + 1 }}</td>
-                           <td>{{ $manageactivationlist->page_number }}</td>
-                           <td>{{ $manageactivationlist->item_name }}</td>
-                           <td>{{ $manageactivationlist->measurement }}</td>
-                           <td>{{ $manageactivationlist->credit_amount }}</td>
-                           <td>{{ $manageactivationlist->intrest }}</td>
-                           <td>{{ $manageactivationlist->from_date }}</td>
+                           <td>{{ $managedepositsactivationlist->page_number }}</td>
+                           <td>{{ $managedepositsactivationlist->item_name }}</td>
+                           <td>{{ $managedepositsactivationlist->measurement }}</td>
+                           <td>{{ $managedepositsactivationlist->credit_amount }}</td>
+                           <td>{{ $managedepositsactivationlist->intrest }}</td>
+                           <td>{{ $managedepositsactivationlist->from_date }}</td>
 
                            <td>
-                              <a class="btn btn-default btn-outline-danger btn-xs fa fa-eye" href="" data-toggle="modal" data-target="#View{{ $manageactivationlist->id }}"> View</a>
-                              <a class="btn btn-default btn-outline-danger btn-xs fa fa-edit" href="" data-toggle="modal" data-target="#Edit{{ $manageactivationlist->id }}"> Edit</a>
+                              <a class="btn btn-default btn-outline-danger btn-xs fa fa-eye" href="" data-toggle="modal" data-target="#View{{ $managedepositsactivationlist->id }}"> View</a>
+                              <a class="btn btn-default btn-outline-danger btn-xs fa fa-edit" href="" data-toggle="modal" data-target="#Edit{{ $managedepositsactivationlist->id }}"> Edit</a>
                             
  </td>
                         </tr>

@@ -17,7 +17,14 @@
                </div>
                <div class="col-sm-1" style="padding-top: calc(.5rem + 0px);">
                   <td>
-                     <button type="button" class="btn btn-block btn-outline-info btn-xs" data-toggle="modal" data-target="#addactivation"><i class="fa fa-plus"> </i> Add</button>
+                     @foreach($managedepositsactivation as $key => $managedepositsactivationlist)
+                   @if($managedepositsactivationlist["status"] == 1)
+                   &nbsp;
+                       @else
+                         <button type="button" class="btn btn-block btn-outline-info btn-xs" data-toggle="modal" data-target="#addactivation"><i class="fa fa-plus"> </i> Add</button>
+                       @endif
+                       @endforeach
+
                   </td>
                </div>
             </ul>
@@ -293,7 +300,7 @@
                                     <div class="form-group row">
                                        <label for="email" class="col-sm-4 col-form-label"><span style="color:red"></span>Interest %</label>
                                        <div class="col-sm-8">
-                                          <input readonly id="intrest{{ $managedepositsactivationlist['id'] }}" type="text"  class="form-control" name="intrest" value="{{ $managedepositsactivationlist['intrest'] }} %" />
+                                          <input readonly id="intrest{{ $managedepositsactivationlist['id'] }}" type="text"  class="form-control" name="intrest" value="{{ $managedepositsactivationlist['intrest'] }}" />
                                        </div>
 
 
@@ -457,11 +464,19 @@
                   @foreach($manageinterest as $key=>$manageinterestlist)
                   <input type="hidden" class="form-control" name="intrest" value="{{ $manageinterestlist->deposits_interest_value }}"/>
                   @endforeach
-                  <input type="hidden" class="form-control" name="id" value=""/>
-                  <input type="text"  class="form-control mb-3" name="page_number" placeholder="Page Number"/>
+                  <div class="form-group row">
+                   <input type="text"  class="form-control" name="page_number" placeholder="Page Number"/>
+                </div> 
+                <div class="form-group row">
                   <textarea name='item_details' class="form-control" rows="3" placeholder="Enter Title..." ></textarea>
-                  <input type="date"  class="form-control mb-3" name="from_date" placeholder="From Date"/>
-                  <input type="text"  class="form-control mb-3" name="credit_amount" placeholder="Credit Amount"/>
+                </div>
+                <div class="form-group row">
+                  <input type="date"  class="form-control" name="from_date" placeholder="From Date"/>
+                </div>
+                 <div class="form-group row">
+                  <input type="text"  class="form-control" name="credit_amount" placeholder="Credit Amount"/>
+                </div>
+               
                </div>
             </div>
          </div>

@@ -36,10 +36,10 @@ class DepositsActivationController extends BaseController
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
  
   /****** View  Roles Start ******/
-  public function manageDepositsCustomers(){
-    $managesdepositscustomers = DB::table('deposits_activation')->where('status',1)->get();
+  public function manageDepositsActivations(){
+    $managedepositsactivations = DB::table('deposits_activation')->where('status',1)->get();
 
-    return view("depositscustomers.all-activation")->with('managesdepositscustomers',$managesdepositscustomers);
+    return view("depositscustomers.all-activation")->with('managedepositsactivations',$managedepositsactivations);
   }
 
 
@@ -47,6 +47,7 @@ class DepositsActivationController extends BaseController
     $managedepositscustomer = DB::table('deposits_customers')->where('id',$id)->get();
     //$manageactivationdetails = DB::table('activation_details')->where('customer_id',$id)->get();
     $manageinterest = DB::table('deposits_interest')->where('status',1)->get();
+    $manageactivationstatus = DB::table('deposits_activation')->where('customer_id',$id)->get();
     $managedepositsactivation = DB::table('deposits_activation')->where('customer_id',$id)->get();
 
     $managedepositsactivation = json_decode(json_encode($managedepositsactivation),true);
@@ -77,7 +78,7 @@ class DepositsActivationController extends BaseController
     //echo "<pre>";print_r($manageactivation);echo "</pre>";die;
 
 
-    return view("depositscustomers.activation")->with('managedepositscustomer',$managedepositscustomer)->with('managedepositsactivation',$managedepositsactivation)->with('manageinterest',$manageinterest);
+    return view("depositscustomers.activation")->with('managedepositscustomer',$managedepositscustomer)->with('managedepositsactivation',$managedepositsactivation)->with('manageinterest',$manageinterest)->with('manageactivationstatus',$manageactivationstatus);
   }
   public function addDepositsActivation(Request $request){
 

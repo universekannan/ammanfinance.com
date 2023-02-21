@@ -79,7 +79,9 @@ Route::group(['middleware' => ['auth']], function() {
 
 
 
+//Collection
 
+    Route::get('/goldcollection', 'App\Http\Controllers\ReportsController@manageGoldCollection');
 
 
 
