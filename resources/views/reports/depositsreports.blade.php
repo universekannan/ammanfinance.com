@@ -10,15 +10,18 @@
 				  Deposits All Activations List
                   </center>
                </div>
-               <div class="col-sm-3" style="padding-top: calc(.5rem + 0px);">
-                  <input type="date" class="form-control" name="from" >
+              <form class="row col-sm-7" action="" onsubmit="" method="post" >
+
+               <div class="col-sm-5" style="padding-top: calc(.1rem + 0px);">
+                  <input type="date" id="from" value="{{ $from }}" class="form-control" name="from" >
                </div>
-               <div class="col-sm-3" style="padding-top: calc(.5rem + 0px);">
-                  <input type="date" class="form-control" name="to" >
+               <div class="col-sm-5" style="padding-top: calc(.1rem + 0px);">
+                 <input type="date" id="to" value="{{ $to }}" class="form-control" name="to" >
                </div>
-               <div class="col-sm-1" style="padding-top: calc(.5rem + 0px);">
-                     <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#addactivation"><i class="fa fa-plus"> </i> Add</button>
+               <div class="col-sm-2" style="padding-top: calc(.2rem + 0px);">
+                     <input onclick="load_depositreport()" type="button"  value="Apply" class="form-control text-center btn btn-block btn-outline-info btn-sm" />
                </div>
+			   </form>
             </ul>
          </div>
          <div class="card-body">
@@ -31,30 +34,38 @@
 			 <table id="example2" class="table table-bordered table-hover">
                      <thead>
                         <tr>
-                           <th>#ID</th>
-                           <th>Page ID</th>
-                           <th>Item Name</th>
-                           <th>Measurement</th>
-                           <th>Credit Amount</th>
-                           <th>Interest</th>
+                           <th>Activation ID</th>
                            <th>From Date</th>
+                           <th>To Date</th>
+                           <th>Intrest</th>
+                           <th>Credit Amount</th>
+                           <th>Interest Amount</th>
+                           <th>Total Amount</th>
+                           <th>Pay Amount</th>
+                           <th>Balance Amount</th>
+                           <th>Credit/Debit</th>
                         </tr>
                      </thead>
                      <tbody>
- @foreach($depositsreports as $key=>$depositsreportslist)
+                        @foreach($depositsreports as $key=>$depositsreportslist)
                         <tr>
 
-                           <td>{{ $key + 1 }}</td>
-                           <td>{{ $depositsreportslist->page_number }}</td>
-                           <td>{{ $depositsreportslist->item_name }}</td>
-                           <td>{{ $depositsreportslist->measurement }}</td>
-                           <td>{{ $depositsreportslist->credit_amount }}</td>
-                           <td>{{ $depositsreportslist->intrest }}</td>
+                           <td>{{ $depositsreportslist->activation_id }}</td>
                            <td>{{ $depositsreportslist->from_date }}</td>
-
+                           <td>{{ $depositsreportslist->to_date }}</td>
+                           <td>{{ $depositsreportslist->intrest }}</td>
+                           <td>{{ $depositsreportslist->credit_amount }}</td>
+                           <td>{{ $depositsreportslist->intrest_amount }}</td>
+                           <td>{{ $depositsreportslist->total_amount }}</td>
+                           <td>{{ $depositsreportslist->pay_amount }}</td>
+                           <td>{{ $depositsreportslist->balance_amount }}</td>
+                           <td>{{ $depositsreportslist->credit_debit }}</td>
                         </tr>
                         @endforeach
 						<tr>
+                           <td>wwwww</td>
+                           <td>wwwww</td>
+                           <td>wwwww</td>
                            <td>wwwww</td>
                            <td>wwwww</td>
                            <td>wwwww</td>

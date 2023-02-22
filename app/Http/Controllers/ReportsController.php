@@ -34,22 +34,35 @@ use Carbon\Carbon;
 class ReportsController extends BaseController
 {
   use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
- 
+
   /****** View  Roles Start ******/
 
 
-  public function manageGoldCollection(){
+  public function manageGoldCollection($from,$to){
 
-    $goldreport = DB::table('activation_details')->orderBy('id','Desc')->get();
+    $goldreport = DB::table('activation_details')->where('to_date','>=',$from)->where('to_date','<=',$to)->orderBy('id','Desc')->get();
 
-    return view("reports.goldreports")->with('goldreport',$goldreport);
+
+    $sql = "SELECT SUM(intrest_amount) as TotalGoldLoans FROM activation_details where to_date >= '$from' and to_date <= '$to'";
+    $result = DB::select(DB::raw($sql));
+    if(count($result) > 0){
+      $TotalGoldLoans = $result[0]->TotalGoldLoans;
+    }
+
+    $sql = "SELECT SUM(pay_amount) as payamount FROM activation_details where to_date >= '$from' and to_date <= '$to'";
+    $result = DB::select(DB::raw($sql));
+    if(count($result) > 0){
+      $payamount = $result[0]->payamount;
+    }
+
+    return view('reports.goldreports',compact('goldreport','from','to','TotalGoldLoans','payamount'));
   } 
 
-  public function manageDepositsCollection(){
+  public function manageDepositsCollection($from,$to){
 
-    $depositsreports = DB::table('deposits_activation')->where('status',1)->get();
+    $depositsreports = DB::table('deposits_activation_details')->where('to_date','>=',$from)->where('to_date','<=',$to)->orderBy('id','Desc')->get();
 
-    return view("reports.depositsreports")->with('depositsreports',$depositsreports);
+    return view('reports.depositsreports',compact('depositsreports','from','to'));
   } 
 
 

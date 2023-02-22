@@ -89,7 +89,7 @@
          <?php } ?>
          <?php if($permission->investigation == 1){ ?>
          <li class="nav-item d-none d-sm-inline-block col-md-1">
-            <a href="{{url('/goldcollection')}}">
+            <a href="{{url('/goldcollection')}}/{{ date('Y-m-d') }}/{{ date('Y-m-d') }}">
             <img src="{!! asset('dist/img/icon/report.png') !!}" style="width:50px"></br>
             <label>Gold Report</label>
             </a>
@@ -114,7 +114,7 @@
 
          <?php if($permission->ot == 1){ ?>
          <li class="nav-item d-none d-sm-inline-block col-md-1">
-            <a href="{{url('/depositscollection')}}">
+            <a href="{{url('/depositscollection')}}/{{ date('Y-m-d') }}/{{ date('Y-m-d') }}">
             <img src="{!! asset('dist/img/icon/lreport.png') !!}" style="width:50px"></br>
             <label>D Report</label>
             </a>

@@ -4326,3 +4326,32 @@ function validate_depositamount(e,id){
 
 </script>
 
+<script>
+  var goldreport = "{{ url('goldcollection') }}";
+  function load_report(){
+    var from = $("#from").val();
+    var to = $("#to").val();
+    if(from == ""){
+      alert("Please select from Date");
+    }else if(to == ""){
+      alert("Please select To Date");
+    }else{
+      var url =  goldreport + "/" + from + "/" +to;  
+      window.location.href = url;
+    }   
+  }
+
+  var depositreport = "{{ url('depositscollection') }}";
+  function load_depositreport(){
+    var from = $("#from").val();
+    var to = $("#to").val();
+    if(from == ""){
+      alert("Please select from Date");
+    }else if(to == ""){
+      alert("Please select To Date");
+    }else{
+      var url =  depositreport + "/" + from + "/" +to;  
+      window.location.href = url;
+    }   
+  }
+</script>
