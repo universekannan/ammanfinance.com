@@ -45,6 +45,12 @@ class ReportsController extends BaseController
     return view("reports.goldreports")->with('goldreport',$goldreport);
   } 
 
+  public function manageDepositsCollection(){
+
+    $depositsreports = DB::table('deposits_activation')->where('status',1)->get();
+
+    return view("reports.depositsreports")->with('depositsreports',$depositsreports);
+  } 
 
 
 

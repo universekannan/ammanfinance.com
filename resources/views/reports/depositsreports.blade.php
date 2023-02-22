@@ -7,7 +7,7 @@
             <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
                <div class="col-sm-5">
                   <center>
-				  Gold Loans All Activations List
+				  Deposits All Activations List
                   </center>
                </div>
                <div class="col-sm-3" style="padding-top: calc(.5rem + 0px);">
@@ -41,16 +41,16 @@
                         </tr>
                      </thead>
                      <tbody>
- @foreach($goldreport as $key=>$gold)
+ @foreach($depositsreports as $key=>$depositsreportslist)
                         <tr>
 
                            <td>{{ $key + 1 }}</td>
-                           <td>{{ $gold->page_number }}</td>
-                           <td>{{ $gold->item_name }}</td>
-                           <td>{{ $gold->measurement }}</td>
-                           <td>{{ $gold->credit_amount }}</td>
-                           <td>{{ $gold->intrest }}</td>
-                           <td>{{ $gold->from_date }}</td>
+                           <td>{{ $depositsreportslist->page_number }}</td>
+                           <td>{{ $depositsreportslist->item_name }}</td>
+                           <td>{{ $depositsreportslist->measurement }}</td>
+                           <td>{{ $depositsreportslist->credit_amount }}</td>
+                           <td>{{ $depositsreportslist->intrest }}</td>
+                           <td>{{ $depositsreportslist->from_date }}</td>
 
                         </tr>
                         @endforeach

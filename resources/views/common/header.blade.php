@@ -87,6 +87,14 @@
             </a>
          </li>
          <?php } ?>
+         <?php if($permission->investigation == 1){ ?>
+         <li class="nav-item d-none d-sm-inline-block col-md-1">
+            <a href="{{url('/goldcollection')}}">
+            <img src="{!! asset('dist/img/icon/report.png') !!}" style="width:50px"></br>
+            <label>Gold Report</label>
+            </a>
+         </li>
+         <?php } ?>
          <?php if($permission->users == 1){ ?>
          <li class="nav-item d-none d-sm-inline-block col-md-1">
             <a href="{{url('/depositscustomers')}}">
@@ -103,18 +111,11 @@
             </a>
          </li>
          <?php } ?>
-         <?php if($permission->investigation == 1){ ?>
-         <li class="nav-item d-none d-sm-inline-block col-md-1">
-            <a href="{{url('/goldcollection')}}">
-            <img src="{!! asset('dist/img/icon/appointment.png') !!}" style="width:50px"></br>
-            <label>Gold Report</label>
-            </a>
-         </li>
-         <?php } ?>
+
          <?php if($permission->ot == 1){ ?>
          <li class="nav-item d-none d-sm-inline-block col-md-1">
-            <a href="">
-            <img src="{!! asset('dist/img/icon/appointment.png') !!}" style="width:50px"></br>
+            <a href="{{url('/depositscollection')}}">
+            <img src="{!! asset('dist/img/icon/lreport.png') !!}" style="width:50px"></br>
             <label>D Report</label>
             </a>
          </li>
