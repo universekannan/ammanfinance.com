@@ -40,7 +40,7 @@ class ReportsController extends BaseController
 
   public function manageGoldCollection(){
 
-    $goldreport = DB::table('activation')->where('status',1)->get();
+    $goldreport = DB::table('activation_details')->orderBy('id','Desc')->get();
 
     return view("reports.goldreports")->with('goldreport',$goldreport);
   } 
