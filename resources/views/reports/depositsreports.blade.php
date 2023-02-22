@@ -10,15 +10,18 @@
 				  Deposits All Activations List
                   </center>
                </div>
-               <div class="col-sm-3" style="padding-top: calc(.5rem + 0px);">
+              <form class="row col-sm-7" action="" onsubmit="" method="post" >
+
+               <div class="col-sm-5" style="padding-top: calc(.1rem + 0px);">
                   <input type="date" class="form-control" name="from" >
                </div>
-               <div class="col-sm-3" style="padding-top: calc(.5rem + 0px);">
+               <div class="col-sm-5" style="padding-top: calc(.1rem + 0px);">
                   <input type="date" class="form-control" name="to" >
                </div>
-               <div class="col-sm-1" style="padding-top: calc(.5rem + 0px);">
+               <div class="col-sm-2" style="padding-top: calc(.2rem + 0px);">
                      <button type="button" class="btn btn-block btn-outline-danger btn-xs" data-toggle="modal" data-target="#addactivation"><i class="fa fa-plus"> </i> Add</button>
                </div>
+			   </form>
             </ul>
          </div>
          <div class="card-body">
