@@ -62,19 +62,19 @@
                            <td>{{ $depositsreportslist->credit_debit }}</td>
                         </tr>
                         @endforeach
-						<tr>
-                           <td>wwwww</td>
-                           <td>wwwww</td>
-                           <td>wwwww</td>
-                           <td>wwwww</td>
-                           <td>wwwww</td>
-                           <td>wwwww</td>
-                           <td>wwwww</td>
-                           <td>wwwww</td>
-                           <td>wwwww</td>
-                           <td>wwwww</td>
-                        </tr>
                      </tbody>
+                      <tfoot>
+                     <tr>
+                         <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td colspan="2">Total Intrest : {{ $depositintrest }}</td> 
+                        <td colspan="2">Credit Amount : {{ $depositcredit }}</td>
+                        <td colspan="2">Debit Amount :  {{ $depositdebit }}</td>
+                       
+                     </tr>
+                  </tfoot>
                   </table>        
 	</div>
 </section>

@@ -111,6 +111,41 @@
 </div>
 
 <div class="col-lg-3 col-6">
+<div class="small-box bg-danger">
+<div class="inner">
+   @if($todaygold == "")
+<h3>0</h3>
+@else
+<h3>{{ $todaygold }}</h3>
+@endif
+<p>New Gold Loans</p>
+</div>
+<div class="icon">
+<i class="ion ion-pie-graph"></i>
+</div>
+<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+</div>
+</div>
+
+<div class="col-lg-3 col-6">
+<div class="small-box bg-danger">
+<div class="inner">
+   @if($todaydeposits == "")
+<h3>0</h3>
+@else
+<h3>{{ $todaydeposits }}</h3>
+@endif
+<p>New Deposits</p>
+</div>
+<div class="icon">
+<i class="ion ion-pie-graph"></i>
+</div>
+<a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+</div>
+</div>
+
+
+<div class="col-lg-3 col-6">
 <div class="small-box bg-warning">
 <div class="inner">
 <h3>{{ $Users }}</h3>

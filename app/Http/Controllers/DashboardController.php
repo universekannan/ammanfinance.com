@@ -91,8 +91,18 @@ class DashboardController extends BaseController
               $InvestmentRemind = $result[0]->InvestmentRemind;
             }
 			
+			  $sql = "SELECT SUM(credit_amount) as  todaygold FROM activation WHERE from_date = '$today'";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+              $todaygold = $result[0]->todaygold;
+            }
 			
-			
+       $sql = "SELECT SUM(credit_amount) as  todaydeposits FROM deposits_activation WHERE from_date = '$today'";
+            $result = DB::select(DB::raw($sql));
+            if(count($result) > 0){
+              $todaydeposits = $result[0]->todaydeposits;
+            }
+      
 			
 			
 			$sql = " select count(*) as Users from users where status='1'";
@@ -100,8 +110,10 @@ class DashboardController extends BaseController
             if(count($result) > 0){
               $Users = $result[0]->Users;
             }
+
+
 			
-            return view("dashboard", compact('Customers','Activations','Users','GoldLoansRemind','TotalGoldLoans','TotaInvestment','InvestmentCustomers','InvestmentCustomers','InvestmentActivations','InvestmentRemind'));
+            return view("dashboard", compact('Customers','Activations','Users','GoldLoansRemind','TotalGoldLoans','TotaInvestment','InvestmentCustomers','InvestmentCustomers','InvestmentActivations','InvestmentRemind','todaygold','todaydeposits'));
 
         }
 
