@@ -7,7 +7,6 @@
       <a href="#" class="h1"><b>Amman</b>Finance</a>
     </div>
     <div class="card-body">
-
       @if(Session::has('loginError'))
           <div class="alert alert-danger" role="alert">
                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
