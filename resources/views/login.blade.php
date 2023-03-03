@@ -14,7 +14,6 @@
                 {!! session('loginError') !!}
           </div>
       @endif
-
       <p class="login-box-msg">Sign in to start your session</p>
 
       <form action="{{url('/checkLogin')}}" method="post" enctype="multipart/form-data"> 
